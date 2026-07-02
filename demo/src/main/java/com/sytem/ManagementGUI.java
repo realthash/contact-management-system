@@ -4,6 +4,7 @@ package com.sytem;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.ScrollPane;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,12 +14,13 @@ import javax.swing.JTextField;
 
 public class ManagementGUI extends JFrame {
 
-    JPanel p1,p2,p3;
+    JPanel p1,p2;
     JLabel name, text;
     JTextField forName, forText, display;
     JButton add, delete;
     public ManagementGUI(){
 
+        //Input panel
         p1 = new JPanel();
         p1.setLayout(new GridLayout(2, 2));
         name = new JLabel("Name : ");
@@ -31,24 +33,18 @@ public class ManagementGUI extends JFrame {
         p1.add(text);
         p1.add(forText);
 
-
+        //Button panel
         p2 = new JPanel();
-        p2.setLayout(new GridLayout(1,1));
-        display = new JTextField();
-        display.isDisplayable();
-        p2.add(display);
-
-        p3 = new JPanel();
-        p3.setLayout(new FlowLayout());
+        p2.setLayout(new FlowLayout());
         add = new JButton("Add contact");
         delete = new JButton("Delete Contact");
 
-        p3.add(add);
-        p3.add(delete);
+        p2.add(add);
+        p2.add(delete);
         
         this.add(p1, BorderLayout.NORTH);
-        this.add(p2, BorderLayout.CENTER);
-        this.add(p3, BorderLayout.SOUTH);
+        this.add(new ScrollPane(),BorderLayout.CENTER);
+        this.add(p2, BorderLayout.SOUTH);
 
 
     }
